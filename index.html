@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="2026 AI 工具與應用入門指南：AI 工具分類、Chat／Deep Research／Workflow／Agent 的比較、工作案例、互動練習及附日期的官方來源。">
+  <meta name="theme-color" content="#0a182b">
+  <title>AI 工作地圖 2026｜從對話到 Agent</title>
+  <style>
+    :root {--ink:#13233a;--muted:#617187;--line:#dfe7ef;--paper:#f5f8fc;--white:#fff;--navy:#0a182b;--blue:#3d6dd7;--lightblue:#ebf2ff;--mint:#158b78;--lightmint:#e4f5f0;--orange:#a96320;--lightorange:#fff0de;--shadow:0 15px 35px rgba(29,52,78,.07)}
+    * {box-sizing:border-box}
+    html {scroll-behavior:smooth;scroll-padding-top:86px}
+    body {margin:0;background:var(--paper);color:var(--ink);font-family:"Noto Sans TC","Microsoft JhengHei",system-ui,-apple-system,sans-serif;line-height:1.72}
+    a {color:inherit}
+    button {font:inherit;cursor:pointer}
+    button:focus-visible,a:focus-visible {outline:3px solid #84bbff;outline-offset:3px}
+    .wrap{width:min(1160px,calc(100% - 48px));margin-inline:auto}
+    .topbar{height:70px;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;backdrop-filter:blur(14px)}
+    .topbar .wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:22px}
+    .brand{display:flex;align-items:center;gap:11px;text-decoration:none;font-weight:850;letter-spacing:-.025em;white-space:nowrap}
+    .brandmark{width:35px;height:35px;display:grid;place-items:center;border-radius:11px;background:var(--navy);color:#c2f3e7;font-size:20px}
+    .brand small{font-size:11px;font-weight:600;letter-spacing:.07em;color:var(--muted);margin-left:5px}
+    .nav{display:flex;align-items:center;gap:18px;overflow:auto;scrollbar-width:none}
+    .nav::-webkit-scrollbar{display:none}
+    .nav a{white-space:nowrap;color:#4a5e78;text-decoration:none;font-size:13px;font-weight:700}
+    .nav a:hover{color:var(--blue)}
+    .hero{color:white;background:radial-gradient(circle at 81% 25%,rgba(31,162,167,.21),transparent 32%),radial-gradient(circle at 37% 95%,rgba(71,104,240,.18),transparent 48%),#0a182b;position:relative;overflow:hidden}
+    .hero:after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.11;background-image:linear-gradient(#81aaca 1px,transparent 1px),linear-gradient(90deg,#81aaca 1px,transparent 1px);background-size:64px 64px;mask-image:linear-gradient(90deg,transparent 16%,black 100%)}
+    .hero .wrap{position:relative;z-index:1;min-height:460px;display:grid;grid-template-columns:1.18fr .82fr;align-items:center;gap:38px;padding-block:72px}
+    .eyebrow{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+    .hero .eyebrow{color:#8fded0}
+    .hero h1{font-size:clamp(37px,5.5vw,65px);line-height:1.18;letter-spacing:-.045em;margin:17px 0 20px}
+    .hero h1 span{color:#a1eadd}
+    .hero p{max-width:590px;color:#c5d2e2;font-size:17px;margin:0}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+    .button{border:1px solid transparent;border-radius:11px;padding:12px 18px;font-weight:800;text-decoration:none;display:inline-flex;justify-content:center;align-items:center;gap:8px}
+    .button.primary{color:#062a29;background:#a7eadf}
+    .button.ghost{color:white;border-color:#60758c;background:rgba(255,255,255,.04)}
+    .button:hover{transform:translateY(-1px)}
+    .visual{border:1px solid rgba(213,230,251,.2);background:rgba(255,255,255,.055);border-radius:24px;padding:23px;box-shadow:0 24px 75px rgba(0,0,0,.14)}
+    .visual-top{display:flex;justify-content:space-between;font-size:12px;color:#adc1d7;margin-bottom:24px}
+    .visual-lane{display:flex;align-items:center;gap:10px;margin:12px 0}
+    .visual-icon{width:43px;height:43px;border-radius:12px;display:grid;place-items:center;flex:none;font-size:17px;font-weight:900;background:#193351;color:#b5cafa}
+    .visual-lane:nth-of-type(3) .visual-icon{background:#214d53;color:#a1ead8}
+    .visual-lane:nth-of-type(4) .visual-icon{background:#3c3f65;color:#d7d0ff}
+    .visual-lane:nth-of-type(5) .visual-icon{background:#22534b;color:#bbf2d8}
+    .visual-label{min-width:0;flex:1}
+    .visual-label b{display:block;font-size:14px}
+    .visual-label small{display:block;color:#a8bdd3;font-size:12px}
+    .visual-arrow{color:#a3b5c8}
+    .visual-bottom{border-top:1px solid rgba(255,255,255,.15);margin-top:20px;padding-top:17px;font-size:12px;color:#acc5d5}
+    .meta-bar{background:#eaf0f6;border-bottom:1px solid #d6e1ea}
+    .meta-bar .wrap{display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:14px 0;color:#51637a;font-size:13px}
+    .meta-bar strong{color:#183956}
+    .layout{display:grid;grid-template-columns:207px minmax(0,1fr);gap:44px;padding-top:52px;padding-bottom:100px}
+    .toc{position:sticky;top:102px;align-self:start}
+    .toc-title{font-size:11px;color:#8391a3;letter-spacing:.1em;font-weight:900;margin-bottom:10px}
+    .toc a{display:block;font-size:13px;text-decoration:none;color:#607086;padding:8px 10px;border-left:2px solid #dfe7ef;line-height:1.4}
+    .toc a:hover,.toc a.active{color:#1c5eb7;border-left-color:#2f83d4;background:#e7f1fb}
+    .toc-note{font-size:12px;color:#8390a3;margin-top:24px;padding:12px;border-radius:9px;border:1px solid #dfe7ef}
+    section{scroll-margin-top:84px;margin-bottom:76px}
+    .section-head{display:flex;align-items:start;gap:16px;margin-bottom:23px}
+    .section-index{display:grid;place-items:center;width:40px;height:40px;border:1px solid #d8e1ed;border-radius:12px;background:white;color:#5072a3;flex:none;font-size:12px;font-weight:900}
+    .section-kicker{font-size:11px;font-weight:850;color:#39749c;letter-spacing:.1em;text-transform:uppercase;margin-bottom:2px}
+    h2{font-size:clamp(25px,3vw,34px);letter-spacing:-.03em;line-height:1.3;margin:0}
+    .lead{font-size:15px;color:#5f7086;margin:12px 0 25px;max-width:780px}
+    h3{font-size:18px;line-height:1.4;margin:0 0 8px}
+    p{margin-top:0}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .card{background:var(--white);border:1px solid var(--line);border-radius:17px;padding:23px;box-shadow:var(--shadow)}
+    .card p{font-size:14px;color:#5b6c80;margin:0}
+    .card .mini{font-size:12px;font-weight:700;color:#73859b;margin-bottom:7px;letter-spacing:.035em}
+    .symbol{width:40px;height:40px;display:grid;place-items:center;background:var(--lightblue);color:var(--blue);border-radius:12px;font-size:19px;margin-bottom:15px}
+    .symbol.mint{background:var(--lightmint);color:var(--mint)}
+    .symbol.warm{background:var(--lightorange);color:var(--orange)}
+    .key{display:inline-block;background:#e6f4f0;border-radius:6px;color:#126b5e;padding:0 6px;font-weight:750}
+    .callout{border-left:4px solid #48aa99;background:#eaf7f4;padding:17px 22px;border-radius:0 13px 13px 0;font-size:14px;color:#1d5f58;margin:21px 0}
+    .toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:19px}
+    .chip{border:1px solid #d7e1eb;background:white;border-radius:99px;color:#52647e;font-size:13px;font-weight:800;padding:8px 13px}
+    .chip[aria-pressed=true]{background:#193d68;border-color:#193d68;color:white}
+    .tools{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+    .tool{display:flex;flex-direction:column;background:white;border:1px solid var(--line);border-radius:15px;padding:19px;min-height:210px}
+    .tool-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+    .tool-logo{width:34px;height:34px;display:grid;place-items:center;border-radius:10px;font-size:16px;font-weight:850;color:#15466e;background:#e9f2fa}
+    .tool-type{border-radius:30px;background:#f1f5f9;color:#748296;font-size:11px;padding:3px 8px}
+    .tool h3{font-size:17px;margin:15px 0 6px}
+    .tool p{font-size:13px;color:#617187;flex:1;margin-bottom:14px}
+    .tool a{font-size:12px;color:#245da3;font-weight:800;text-decoration:none}
+    .tool small{display:block;font-size:11px;color:#8895a7;margin-top:8px}
+    .mode-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:24px 0}
+    .mode-step{border:1px solid #dfe7ef;border-radius:14px;padding:18px 13px;background:white}
+    .mode-step b{display:block;font-size:14px}
+    .mode-step span{display:block;color:#7a899b;font-size:12px;margin-top:3px}
+    .mode-step strong{display:block;font-size:28px;color:#6582ac;line-height:1;margin-bottom:13px}
+    .mode-step:last-child{background:#123b48;border-color:#123b48;color:white}
+    .mode-step:last-child span{color:#bdd5d9}
+    .mode-step:last-child strong{color:#92e8d6}
+    .scroll-table{overflow:auto;border:1px solid var(--line);border-radius:16px;background:white}
+    table{width:100%;border-collapse:collapse;font-size:13px;min-width:640px}
+    th{background:#edf3f8;color:#506278;text-align:left;font-size:12px;letter-spacing:.02em}
+    td,th{padding:13px 15px;border-bottom:1px solid #e8eef4;vertical-align:top}
+    tr:last-child td{border-bottom:none}
+    td:first-child{font-weight:750}
+    .scenario{background:#0f253d;color:white;border-radius:20px;padding:26px}
+    .scenario .eyebrow{color:#a5e6dd}
+    .scenario h3{font-size:21px;margin:8px 0 16px}
+    .tabs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:22px}
+    .tab{border:1px solid #54708e;color:#cadae9;border-radius:10px;padding:9px 13px;background:transparent;font-size:13px;font-weight:800}
+    .tab[aria-selected=true]{background:#a7eade;color:#0b2934;border-color:#a7eade}
+    .panel{border:1px solid #3c556e;background:rgba(255,255,255,.045);border-radius:15px;padding:20px}
+    .panel h4{font-size:17px;margin:0 0 9px}
+    .panel p{font-size:14px;color:#d2dfeb;margin-bottom:11px}
+    .panel ol{padding-left:23px;color:#d2dfeb;margin:9px 0;font-size:14px}
+    .panel li{margin:5px 0}
+    .panel .output{margin-top:17px;padding:11px 14px;border-radius:10px;background:#204f50;color:#b1f1e7;font-weight:750;font-size:13px}
+    .timeline{position:relative;padding-left:24px;margin:15px 0}
+    .timeline:before{content:"";position:absolute;left:6px;top:10px;bottom:17px;width:2px;background:#c8d8e8}
+    .event{position:relative;margin:0 0 27px}
+    .event:before{content:"";width:12px;height:12px;background:#5b93bb;border:3px solid var(--paper);border-radius:50%;position:absolute;left:-23px;top:7px}
+    .date{font-size:12px;font-weight:900;color:#357c9d}
+    .event h3{font-size:16px;margin:4px 0}
+    .event p{color:#68788d;font-size:13px;margin:0}
+    .event a{color:#2766a4;text-decoration:none;font-size:12px;font-weight:700}
+    .quiz{background:white;border:1px solid var(--line);border-radius:20px;padding:26px;box-shadow:var(--shadow)}
+    .quiz-head{display:flex;justify-content:space-between;gap:15px;color:#60758e;font-size:13px;font-weight:750}
+    .quiz-progress{height:6px;background:#e8eef5;border-radius:30px;margin:16px 0 25px;overflow:hidden}
+    .quiz-progress div{height:100%;background:#36a08b;transition:width .2s}
+    .quiz h3{font-size:21px;margin-bottom:20px}
+    .answer{display:block;width:100%;text-align:left;padding:13px 16px;border:1px solid #dbe4ed;border-radius:11px;background:#f9fbfe;margin:8px 0;font-weight:750;color:#4a5d73}
+    .answer:hover{border-color:#85b3d1;background:#edf7ff}
+    .answer.selected{border-color:#348c83;background:#e9f9f3;color:#166a5f}
+    .quiz-feedback{font-size:13px;padding:12px;border-radius:10px;background:#eff7f6;color:#275a56;margin:18px 0}
+    .quiz-actions{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:20px}
+    .btn-small{border:1px solid #cbd9e7;background:white;border-radius:10px;padding:10px 15px;font-size:13px;font-weight:800;color:#245f89}
+    .btn-small.fill{background:#123b58;border-color:#123b58;color:white}
+    .btn-small:disabled{opacity:.35;cursor:default}
+    .risk-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+    .risk{background:white;border:1px solid var(--line);padding:18px;border-radius:13px}
+    .risk b{font-size:14px}
+    .risk p{font-size:13px;color:#637388;margin:5px 0 0}
+    .source-list{display:grid;gap:10px}
+    .source{display:flex;align-items:start;justify-content:space-between;gap:14px;padding:16px 18px;background:white;border:1px solid var(--line);border-radius:13px}
+    .source b{font-size:14px}
+    .source p{font-size:12px;color:#718095;margin:4px 0 0}
+    .source a{color:#21659b;font-size:13px;font-weight:800;text-decoration:none;white-space:nowrap}
+    .source a:hover,.tool a:hover{text-decoration:underline}
+    footer{background:#0a182b;color:#9fb1c8;padding:32px 0;font-size:13px}
+    footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+    footer strong{color:white}
+    .hidden{display:none !important}
+    .up{position:fixed;right:23px;bottom:21px;z-index:10;border:1px solid #d7e2ef;background:white;color:#275b86;border-radius:100px;width:43px;height:43px;box-shadow:0 7px 25px rgba(0,0,0,.11);font-size:20px;display:grid;place-items:center;text-decoration:none}
+    @media(max-width:980px){.hero .wrap{grid-template-columns:1fr}.visual{max-width:610px}.layout{display:block}.toc{display:none}.tools{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:680px){.wrap{width:min(100% - 28px,1160px)}.topbar{height:64px}.brand small{display:none}.nav{gap:13px}.nav a{font-size:12px}.hero .wrap{padding-block:55px;gap:28px}.hero h1{font-size:40px}.hero p{font-size:15px}.visual{padding:18px}.layout{padding-top:36px}.grid,.risk-grid,.tools{grid-template-columns:1fr}.mode-steps{grid-template-columns:repeat(2,minmax(0,1fr))}.section-head{gap:10px}.section-index{width:33px;height:33px}.card{padding:19px}section{margin-bottom:59px}.scenario,.quiz{padding:19px}.source{display:block}.source a{display:inline-block;margin-top:8px}.meta-bar .wrap{gap:5px}.up{right:12px;bottom:12px}}
+    @media print{.topbar,.hero-actions,.toc,.toolbar,.tabs,.quiz-actions,.up{display:none!important}.hero{color:#111;background:#fff}.hero p,.hero .eyebrow{color:#333}.hero .wrap{min-height:auto;padding:25px 0}.visual{display:none}.layout{display:block;padding:0}.tools{grid-template-columns:repeat(3,1fr)}.tool,.card,.risk,.source{break-inside:avoid;box-shadow:none}.scenario{color:#111;background:#fff;border:1px solid #ddd}.panel p,.panel ol{color:#222}.panel .output{color:#12472f;background:#eee}section{break-inside:auto;margin-bottom:40px}.callout{border:1px solid #ddd}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="#top" aria-label="回到首頁"><span class="brandmark">✳</span> AI 工作地圖 <small>2026 EDITION</small></a>
+      <nav class="nav" aria-label="主要導覽"><a href="#overview">認識 AI</a><a href="#market">工具地圖</a><a href="#modes">使用模式</a><a href="#scenario">工作示範</a><a href="#quiz">互動練習</a><a href="#sources">官方來源</a></nav>
+    </div>
+  </header>
+  <main id="top">
+    <div class="hero">
+      <div class="wrap">
+        <div>
+          <div class="eyebrow">RTEAM · AI 基礎推廣</div>
+          <h1>AI 不只是聊天。<br><span>它正在學會做事。</span></h1>
+          <p>一次看懂市面上的 AI 工具，以及 Chat、Deep Research、Workflow 與 AI Agent 的差異。從「問 AI」走向「和 AI 一起完成工作」。</p>
+          <div class="hero-actions"><a class="button primary" href="#overview">開始閱讀 ↗</a><a class="button ghost" href="#quiz">直接挑戰互動題</a></div>
+        </div>
+        <div class="visual" aria-label="從對話到代理的 AI 使用階段">
+          <div class="visual-top"><span>AI WORK PATTERNS</span><span>01 — 04</span></div>
+          <div class="visual-lane"><span class="visual-icon">01</span><span class="visual-label"><b>Chat · 對話</b><small>提出問題，產生內容</small></span><span class="visual-arrow">↗</span></div>
+          <div class="visual-lane"><span class="visual-icon">02</span><span class="visual-label"><b>Research · 研究</b><small>搜尋、比較、引用來源</small></span><span class="visual-arrow">↗</span></div>
+          <div class="visual-lane"><span class="visual-icon">03</span><span class="visual-label"><b>Workflow · 流程</b><small>依既定步驟重複執行</small></span><span class="visual-arrow">↗</span></div>
+          <div class="visual-lane"><span class="visual-icon">04</span><span class="visual-label"><b>Agent · 代理</b><small>依目標規劃並使用工具</small></span><span class="visual-arrow">↗</span></div>
+          <div class="visual-bottom">由左到右是常見使用方式的概念對照，而非技術優劣排名。</div>
+        </div>
+      </div>
+    </div>
+    <div class="meta-bar"><div class="wrap"><span><strong>內容查核基準：</strong>2026 年 11 月 1 日</span><span>繁體中文 · 同仁教育訓練 · 附官方來源與原始日期</span></div></div>
+    <div class="wrap layout">
+      <aside class="toc" aria-label="本頁目錄">
+        <div class="toc-title">ON THIS PAGE</div>
+        <a href="#overview">01 · AI 的基本類型</a><a href="#market">02 · 主流工具地圖</a><a href="#modes">03 · 使用模式比較</a><a href="#scenario">04 · 同一任務四種做法</a><a href="#timeline">05 · 發展時間軸</a><a href="#usecases">06 · 工作應用情境</a><a href="#quiz">07 · 互動小測驗</a><a href="#safety">08 · 使用風險</a><a href="#sources">09 · 官方參考來源</a>
+        <div class="toc-note">這是一份會隨時代過時的教材。建議每次對外分享前再次檢查產品版本、地區與授權。</div>
+      </aside>
+      <div class="content">
+        <section id="overview">
+          <div class="section-head"><span class="section-index">01</span><div><div class="section-kicker">THE FOUNDATION</div><h2>先認識 AI 的四種面貌</h2></div></div>
+          <p class="lead">「AI」是大範圍概念。以下四類彼此可以重疊；同一個產品可能同時具備多種能力。</p>
+          <div class="grid">
+            <article class="card"><div class="symbol">◎</div><div class="mini">PREDICTIVE</div><h3>傳統／預測型 AI</h3><p>從資料中找到規律，進行分類、辨識或預測。例如品質檢測、需求預測、異常偵測。</p></article>
+            <article class="card"><div class="symbol mint">✧</div><div class="mini">GENERATIVE</div><h3>生成式 AI</h3><p>根據需求生成文字、圖片、音訊、影片或程式碼。常見於寫作、簡報和創意製作。</p></article>
+            <article class="card"><div class="symbol warm">◈</div><div class="mini">MULTIMODAL</div><h3>多模態 AI</h3><p>理解與處理文字、圖片、聲音、影片等不同資訊形式，例如看圖問答或語音互動。</p></article>
+            <article class="card"><div class="symbol mint">↗</div><div class="mini">AGENTIC</div><h3>代理式 AI</h3><p>在給定目標、工具與授權限制下，規劃工作步驟、採取行動並依結果調整。</p></article>
+          </div>
+          <div class="callout"><strong>先記住：</strong>產品名稱、AI 模型、使用模式是三件不同的事。以 ChatGPT 為例，它是產品；GPT-6 是模型系列；Chat 與多步驟工作執行則是不同的使用方式。</div>
+        </section>
+        <section id="market">
+          <div class="section-head"><span class="section-index">02</span><div><div class="section-kicker">THE TOOL LANDSCAPE</div><h2>2026 主流 AI 工具地圖</h2></div></div>
+          <p class="lead">依工作用途分類，不代表能力排名。點選類別篩選，點選工具的官方入口可查看目前可用功能。</p>
+          <div class="toolbar" role="group" aria-label="工具分類篩選"><button class="chip" data-filter="all" aria-pressed="true">全部</button><button class="chip" data-filter="general" aria-pressed="false">通用助理</button><button class="chip" data-filter="research" aria-pressed="false">研究／文件</button><button class="chip" data-filter="creative" aria-pressed="false">內容創作</button><button class="chip" data-filter="workflow" aria-pressed="false">自動化</button><button class="chip" data-filter="coding" aria-pressed="false">程式開發</button></div>
+          <div class="tools" id="toolGrid">
+            <article class="tool" data-group="general"><div class="tool-top"><span class="tool-logo">G</span><span class="tool-type">通用</span></div><h3>ChatGPT</h3><p>問答、寫作、資料分析、程式設計、多步驟工作。</p><a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">開啟官方網站 ↗</a><small>OpenAI · GPT-6 更新 2026/10/29</small></article>
+            <article class="tool" data-group="general coding"><div class="tool-top"><span class="tool-logo">C</span><span class="tool-type">通用／開發</span></div><h3>Claude</h3><p>長文件理解、程式開發、複雜知識工作與 Agent。</p><a href="https://claude.ai/" target="_blank" rel="noopener noreferrer">開啟官方網站 ↗</a><small>Anthropic · Opus 5.5：2026/09/22</small></article>
+            <article class="tool" data-group="general research"><div class="tool-top"><span class="tool-logo">✦</span><span class="tool-type">通用／多模態</span></div><h3>Gemini</h3><p>多模態理解、研究以及 Google 生態系整合。</p><a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer">開啟官方網站 ↗</a><small>Google · Gemini 4 Argon：2026/10</small></article>
+            <article class="tool" data-group="general workflow"><div class="tool-top"><span class="tool-logo">M</span><span class="tool-type">工作助理</span></div><h3>Microsoft Copilot</h3><p>Microsoft 365 文件、會議、企業工作流程及 Agent。</p><a href="https://www.microsoft.com/microsoft-copilot" target="_blank" rel="noopener noreferrer">開啟官方網站 ↗</a><small>Microsoft · 依授權與組織設定而異</small></article>
+            <article class="tool" data-group="general coding"><div class="tool-top"><span class="tool-logo">D</span><span class="tool-type">推理／開發</span></div><h3>DeepSeek</h3><p>推理、程式設計與開發者 API；不同產品版本能力可能不同。</p><a href="https://www.deepseek.com/" target="_blank" rel="noopener noreferrer">開啟官方網站 ↗</a><small>DeepSeek · 查核 2026/11/01</small></article>
+            <article class="tool" data-group="research"><div class="tool-top"><span class="tool-logo">P</span><span class="tool-type">搜尋研究</span></div><h3>Perplexity</h3><p>以網路搜尋、資料檢索及附來源回答為重點。</p><a href="https://www.perplexity.ai/" target="_blank" rel="noopener noreferrer">開啟官方網站 ↗</a><small>Perplexity · 查核 2026/11/01</small></article>
+            <article class="tool" data-group="research"><div class="tool-top"><span class="tool-logo">N</span><span class="tool-type">文件知識</span></div><h3>Gemini Notebook</h3><p>以指定文件為核心進行問答、整理、研究與學習。</p><a href="https://notebooklm.google.com/" target="_blank" rel="noopener noreferrer">開啟官方網站 ↗</a><small>Google · 原 NotebookLM，2026/07/16 更名</small></article>
+            <article class="tool" data-group="creative"><div class="tool-top"><span class="tool-logo">✎</span><span class="tool-type">視覺設計</span></div><h3>Canva AI</h3><p>簡報、海報、社群素材與圖片設計協作。</p><a href="https://www.canva.com/" target="_blank" rel="noopener noreferrer">開啟官方網站 ↗</a><small>Canva · 查核 2026/11/01</small></article>
+            <article class="tool" data-group="creative"><div class="tool-top"><span class="tool-logo">♫</span><span class="tool-type">語音</span></div><h3>ElevenLabs</h3><p>文字轉語音、配音、旁白及語音 Agent。</p><a href="https://elevenlabs.io/" target="_blank" rel="noopener noreferrer">開啟官方網站 ↗</a><small>ElevenLabs · 查核 2026/11/01</small></article>
+            <article class="tool" data-group="creative"><div class="tool-top"><span class="tool-logo">▶</span><span class="tool-type">影片</span></div><h3>Runway</h3><p>生成與編輯影片，適合示意影片及行銷內容。</p><a href="https://runwayml.com/" target="_blank" rel="noopener noreferrer">開啟官方網站 ↗</a><small>Runway · 查核 2026/11/01</small></article>
+            <article class="tool" data-group="coding"><div class="tool-top"><span class="tool-logo">&lt;/&gt;</span><span class="tool-type">開發</span></div><h3>GitHub Copilot</h3><p>程式碼建議、除錯、測試，以及 Coding Agent 任務。</p><a href="https://github.com/features/copilot" target="_blank" rel="noopener noreferrer">開啟官方網站 ↗</a><small>GitHub · 查核 2026/11/01</small></article>
+            <article class="tool" data-group="workflow"><div class="tool-top"><span class="tool-logo">↬</span><span class="tool-type">流程串接</span></div><h3>Make / Zapier</h3><p>依事件或條件串接應用程式，也能整合 AI 步驟。</p><a href="https://www.make.com/" target="_blank" rel="noopener noreferrer">Make 官網 ↗</a> <a href="https://zapier.com/" target="_blank" rel="noopener noreferrer">Zapier 官網 ↗</a><small>自動化平台 · 查核 2026/11/01</small></article>
+          </div>
+          <p class="lead" style="margin-top:16px;font-size:13px">註：此處的「代表工具」不是市場占有率排序；產品入口、模型開放範圍及付費權益可能因地區、方案或組織設定不同。資料日期和官方文件請見頁末。</p>
+        </section>
+        <section id="modes">
+          <div class="section-head"><span class="section-index">03</span><div><div class="section-kicker">HOW TO USE AI</div><h2>Chat、Workflow、Agent 有何不同？</h2></div></div>
+          <p class="lead">它們不是互斥產品，而是不同工作模式。任務越複雜，不代表一定要用自主程度最高的工具。</p>
+          <div class="mode-steps"><div class="mode-step"><strong>01</strong><b>Chat</b><span>人逐步提問／調整</span></div><div class="mode-step"><strong>02</strong><b>Deep Research</b><span>蒐集來源／分析</span></div><div class="mode-step"><strong>03</strong><b>Workflow</b><span>依設定的流程執行</span></div><div class="mode-step"><strong>04</strong><b>AI Agent</b><span>依目標決定步驟</span></div></div>
+          <div class="scroll-table"><table><thead><tr><th>模式</th><th>人員角色</th><th>AI 主要能力</th><th>最適合</th></tr></thead><tbody>
+            <tr><td>Chat 對話</td><td>一步一步發問、修改</td><td>解答與生成內容</td><td>改寫、翻譯、草稿</td></tr>
+            <tr><td>Deep Research</td><td>定義研究主題和範圍</td><td>搜尋多個來源、綜合分析</td><td>趨勢報告、競品研究</td></tr>
+            <tr><td>Copilot 助理</td><td>在既有軟體中下指令</td><td>協助編輯與完成操作</td><td>Office、會議、開發</td></tr>
+            <tr><td>Workflow 工作流程</td><td>設計觸發條件及步驟</td><td>按既定路徑執行</td><td>表單、通知、例行報表</td></tr>
+            <tr><td>Agent 代理</td><td>設定目標、權限與審核點</td><td>自行規劃、使用工具並調整</td><td>跨網站、跨工具的任務</td></tr>
+            <tr><td>Multi-Agent 多代理</td><td>設計角色、協作與監督</td><td>多代理分工、交接任務</td><td>較複雜的跨專業工作</td></tr>
+          </tbody></table></div>
+          <div class="callout"><strong>重要差異：</strong>Workflow 通常按預先規劃的路徑運作；Agent 可根據目標與回饋動態決定下一步。兩者可以混合使用，也都需要權限管理與人工監督。</div>
+        </section>
+        <section id="scenario">
+          <div class="section-head"><span class="section-index">04</span><div><div class="section-kicker">ONE TASK, FOUR APPROACHES</div><h2>同一個工作，四種 AI 做法</h2></div></div>
+          <p class="lead">情境：「主管希望每個月收到一份 AI 產業趨勢報告。」切換下列模式，看任務如何被處理。</p>
+          <div class="scenario">
+            <div class="eyebrow">WORK DEMO · MONTHLY AI BRIEFING</div><h3>每月 AI 趨勢報告</h3>
+            <div class="tabs" role="tablist" aria-label="切換 AI 使用模式"><button class="tab" id="tab-chat" role="tab" aria-controls="scenarioPanel" aria-selected="true" data-mode="chat">Chat</button><button class="tab" id="tab-research" role="tab" aria-controls="scenarioPanel" aria-selected="false" data-mode="research">Deep Research</button><button class="tab" id="tab-workflow" role="tab" aria-controls="scenarioPanel" aria-selected="false" data-mode="workflow">Workflow</button><button class="tab" id="tab-agent" role="tab" aria-controls="scenarioPanel" aria-selected="false" data-mode="agent">Agent</button></div>
+            <div id="scenarioPanel" role="tabpanel" aria-labelledby="tab-chat" class="panel" aria-live="polite"></div>
+          </div>
+        </section>
+        <section id="timeline">
+          <div class="section-head"><span class="section-index">05</span><div><div class="section-kicker">WHY DATES MATTER</div><h2>AI 資訊具有「版本時效性」</h2></div></div>
+          <p class="lead">同一個名稱的產品，功能、模型與授權可能在幾個月內改變。分享 AI 資訊時，應同時記錄公告日期及本次查核日期。</p>
+          <div class="timeline">
+            <div class="event"><div class="date">2024/12/19</div><h3>Agent 與 Workflow 概念受到關注</h3><p>Anthropic 發表《Building effective agents》，系統性解釋預設流程與動態代理的區別。</p><a href="https://www.anthropic.com/research/building-effective-agents" target="_blank" rel="noopener noreferrer">查看官方文章 ↗</a></div>
+            <div class="event"><div class="date">2025/07/17</div><h3>OpenAI 推出 ChatGPT agent</h3><p>代理模式整合網頁操作、研究與執行工具；功能入口後續隨產品演進而改變。</p><a href="https://openai.com/index/introducing-chatgpt-agent/" target="_blank" rel="noopener noreferrer">查看官方公告 ↗</a></div>
+            <div class="event"><div class="date">2026/07/09</div><h3>ChatGPT Work 發布</h3><p>OpenAI 將較長、跨檔案與應用程式的工作納入 Work 模式。</p><a href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes" target="_blank" rel="noopener noreferrer">查看版本紀錄 ↗</a></div>
+            <div class="event"><div class="date">2026/07/16</div><h3>NotebookLM 更名為 Gemini Notebook</h3><p>這也是為何舊教材可能找不到相同產品介面的例子。</p><a href="https://blog.google/innovation-and-ai/products/gemini-notebook/notebooklm-gemini-notebook/" target="_blank" rel="noopener noreferrer">查看 Google 公告 ↗</a></div>
+            <div class="event"><div class="date">2026/09/22</div><h3>Claude Opus 5.5 發布</h3><p>Anthropic 更新其代理式程式設計與知識工作模型。</p><a href="https://www.anthropic.com/claude-opus-5-5" target="_blank" rel="noopener noreferrer">查看模型公告 ↗</a></div>
+            <div class="event"><div class="date">2026/10</div><h3>GPT-6 與 Gemini 4 Argon 的更新</h3><p>主要模型持續演進；模型推出與特定方案、地區正式可用的時間可能不同。</p><a href="https://help.openai.com/en/articles/9624314-model-release-notes" target="_blank" rel="noopener noreferrer">OpenAI 模型版本 ↗</a></div>
+          </div>
+        </section>
+        <section id="usecases">
+          <div class="section-head"><span class="section-index">06</span><div><div class="section-kicker">PRACTICAL APPLICATIONS</div><h2>日常工作應該選哪種 AI？</h2></div></div>
+          <div class="scroll-table"><table><thead><tr><th>工作任務</th><th>適合模式</th><th>產出成果</th></tr></thead><tbody>
+            <tr><td>郵件、公文、簡報草稿</td><td>Chat</td><td>文字草稿、摘要與改寫</td></tr>
+            <tr><td>整理研究報告或技術文件</td><td>文件 AI／RAG</td><td>引用來源的重點整理</td></tr>
+            <tr><td>研究產業與競爭者動向</td><td>Deep Research</td><td>附證據與日期的研究簡報</td></tr>
+            <tr><td>Excel 數據彙整與圖表</td><td>資料分析 AI／Copilot</td><td>趨勢圖、整理表、解讀</td></tr>
+            <tr><td>固定通知與月報</td><td>Workflow</td><td>可重複執行的工作流程</td></tr>
+            <tr><td>跨網站蒐集並完成交付</td><td>AI Agent</td><td>多步驟工作成果</td></tr>
+          </tbody></table></div>
+          <p class="lead" style="font-size:13px;margin-top:15px">RAG（檢索增強生成）是先從文件或知識庫擷取相關資訊，再讓 AI 組織答案的方法；不是單獨的 AI 品牌。</p>
+        </section>
+        <section id="quiz">
+          <div class="section-head"><span class="section-index">07</span><div><div class="section-kicker">TEST YOUR UNDERSTANDING</div><h2>三題互動測驗</h2></div></div>
+          <p class="lead">用不同情境練習判斷：哪一種模式更合適？</p>
+          <div class="quiz">
+            <div class="quiz-head"><span id="quizCount">第 1 題 / 共 3 題</span><span id="quizScore">已答對 0 題</span></div><div class="quiz-progress"><div id="quizBar" style="width:33.333%"></div></div>
+            <h3 id="quizQuestion"></h3><div id="quizOptions" role="group" aria-label="選擇答案"></div><div id="quizFeedback" class="quiz-feedback hidden" aria-live="polite"></div>
+            <div class="quiz-actions"><button id="quizPrev" class="btn-small" type="button">上一題</button><button id="quizNext" class="btn-small fill" type="button">下一題 →</button></div>
+          </div>
+        </section>
+        <section id="safety">
+          <div class="section-head"><span class="section-index">08</span><div><div class="section-kicker">RESPONSIBLE ADOPTION</div><h2>導入 AI，還要懂風險</h2></div></div>
+          <p class="lead">AI 可以提高效率，但「正確性、權限與責任」仍需要人來把關。</p>
+          <div class="risk-grid">
+            <div class="risk"><b>01 · AI 幻覺</b><p>數字、論文、法規或新聞可能編造。應回到原始來源比對。</p></div>
+            <div class="risk"><b>02 · 機密與個資</b><p>未核准前，避免輸入內部機密、個人資料、未公開合約等內容。</p></div>
+            <div class="risk"><b>03 · 著作權與授權</b><p>商用文字、圖片、語音須確認資料來源及使用權利。</p></div>
+            <div class="risk"><b>04 · Agent 的動作權限</b><p>寄信、刪改資料、付款等高影響行為應設審核關卡與日誌。</p></div>
+            <div class="risk"><b>05 · 提示注入</b><p>外部網頁與文件可能含誤導指令；不要把內容視為可信的系統命令。</p></div>
+            <div class="risk"><b>06 · 版本與可用性</b><p>產品可能改名、停用或限地區／方案開放；使用前重新確認。</p></div>
+          </div>
+          <div class="callout"><strong>使用原則：</strong>先定義任務 → 選擇適當工具 → 檢查資料權限 → 驗證重要資訊 → 人員確認最終結果。</div>
+        </section>
+        <section id="sources">
+          <div class="section-head"><span class="section-index">09</span><div><div class="section-kicker">SOURCE LIBRARY</div><h2>官方來源與資訊日期</h2></div></div>
+          <p class="lead">以下優先選用原始廠商公告、技術文件與公部門資料。「發布日」與「查核日」分開標示；未註明日期的動態頁面不強行推定發布日。</p>
+          <div class="source-list">
+            <div class="source"><div><b>Anthropic｜Building effective agents</b><p>Workflow 與 Agent 定義 · 發布 2024/12/19</p></div><a href="https://www.anthropic.com/research/building-effective-agents" target="_blank" rel="noopener noreferrer">閱讀來源 ↗</a></div>
+            <div class="source"><div><b>OpenAI｜ChatGPT release notes</b><p>ChatGPT Work · 公告 2026/07/09；版本頁持續更新</p></div><a href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes" target="_blank" rel="noopener noreferrer">閱讀來源 ↗</a></div>
+            <div class="source"><div><b>OpenAI｜Model Release Notes</b><p>GPT-6 模型變更 · 2026/10/29 更新；頁面持續更新</p></div><a href="https://help.openai.com/en/articles/9624314-model-release-notes" target="_blank" rel="noopener noreferrer">閱讀來源 ↗</a></div>
+            <div class="source"><div><b>Google｜NotebookLM is now Gemini Notebook</b><p>品牌與研究功能 · 2026/07/16</p></div><a href="https://blog.google/innovation-and-ai/products/gemini-notebook/notebooklm-gemini-notebook/" target="_blank" rel="noopener noreferrer">閱讀來源 ↗</a></div>
+            <div class="source"><div><b>Google｜Gemini 4 Argon</b><p>模型發布與可用性 · 2026/10 公告</p></div><a href="https://blog.google/intl/zh-tw/products/explore-get-answers/introducing-gemini-4-argon/" target="_blank" rel="noopener noreferrer">閱讀來源 ↗</a></div>
+            <div class="source"><div><b>Anthropic｜Claude Opus 5.5</b><p>模型公告 · 2026/09/22</p></div><a href="https://www.anthropic.com/claude-opus-5-5" target="_blank" rel="noopener noreferrer">閱讀來源 ↗</a></div>
+            <div class="source"><div><b>Microsoft Learn｜Agents overview</b><p>Copilot Studio 的代理工作架構 · 動態文件，查核 2026/11/01</p></div><a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-overview" target="_blank" rel="noopener noreferrer">閱讀來源 ↗</a></div>
+            <div class="source"><div><b>NIST｜Generative AI Risk Management Profile</b><p>風險治理框架 · 2024/07/26</p></div><a href="https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence" target="_blank" rel="noopener noreferrer">閱讀來源 ↗</a></div>
+            <div class="source"><div><b>行政院｜使用生成式 AI 參考指引</b><p>台灣公部門參考規範 · 2023 年公告</p></div><a href="https://www.ey.gov.tw/Page/448DE008087A1971/40c1a925-121d-4b6b-8f40-7e9e1a5401f2" target="_blank" rel="noopener noreferrer">閱讀來源 ↗</a></div>
+          </div>
+          <div class="callout" style="background:#edf3fa;border-color:#6c92bf;color:#3c5673"><strong>更新建議：</strong>每次分享前，重新確認每個產品的「正式／預覽／停用」狀態、使用方案、發表日期與來源是否仍有效。網站內容為教學整理，非產品能力或安全性的排名。</div>
+        </section>
+      </div>
+    </div>
+  </main>
+  <a class="up" href="#top" aria-label="回到頁首">↑</a>
+  <footer><div class="wrap"><div><strong>AI 工作地圖 · 2026</strong><br>RTeam AI 基礎推廣｜教學整理與資料來源導覽</div><div>資訊查核：2026/11/01 · 靜態教學網站 · GitHub Pages</div></div></footer>
+  <script>
+    (function(){
+      "use strict";
+      var filters=document.querySelectorAll("[data-filter]");
+      var tools=document.querySelectorAll(".tool");
+      filters.forEach(function(btn){btn.addEventListener("click",function(){
+        var value=btn.getAttribute("data-filter");
+        filters.forEach(function(b){b.setAttribute("aria-pressed",String(b===btn));});
+        tools.forEach(function(card){card.classList.toggle("hidden",value!=="all" && card.getAttribute("data-group").split(" ").indexOf(value)<0);});
+      });});
+      var scenarios={
+        chat:{title:"人主導問答，AI 提供內容",description:"一個問題一個回答，適合快速發想與製作草稿。若未提供資料或開啟搜尋，AI 不保證內容是最新的。",steps:["使用者：請整理本月 AI 趨勢。","AI 產出初稿，使用者檢查和補充資料。","使用者再要求修改格式或用語。"],output:"成果：一份需要人工核實來源的報告草稿"},
+        research:{title:"AI 蒐集多個來源，整理研究報告",description:"使用者定義題目、時間範圍與來源要求，AI 著重研究與證據整合。",steps:["指定本月、主要廠商、官方來源優先。","AI 搜尋官方公告與技術文件，交叉比較。","產出附來源及日期的研究摘要，交由人員核查。"],output:"成果：可追溯來源的研究報告"},
+        workflow:{title:"流程固定，適合定期自動化",description:"設定好工作路徑和觸發條件後，每次按既定步驟執行。",steps:["每月 1 日自動啟動。","讀取指定資料來源 → AI 摘要 → 填寫固定模板。","將結果寄送主管審核，異常時通知人員。"],output:"成果：穩定、可重複的每月報表流程"},
+        agent:{title:"目標導向，AI 動態決定下一步",description:"給 AI 任務目標與允許的工具，它可根據過程中的發現調整執行策略；重要動作仍應先核准。",steps:["設定目標：每月交付具來源的產業趨勢簡報。","AI 自行決定研究子題、蒐集資料、比對衝突。","使用授權工具製作文件，送交人工確認。"],output:"成果：跨步驟完成的工作交付，需監督與審核"}
+      };
+      var tabs=document.querySelectorAll("[data-mode]"),panel=document.getElementById("scenarioPanel");
+      function showMode(name){var data=scenarios[name];tabs.forEach(function(b){var on=b.dataset.mode===name;b.setAttribute("aria-selected",String(on));b.tabIndex=on?0:-1;});panel.setAttribute("aria-labelledby","tab-"+name);panel.innerHTML="";var h=document.createElement("h4");h.textContent=data.title;panel.appendChild(h);var p=document.createElement("p");p.textContent=data.description;panel.appendChild(p);var ol=document.createElement("ol");data.steps.forEach(function(t){var li=document.createElement("li");li.textContent=t;ol.appendChild(li);});panel.appendChild(ol);var out=document.createElement("div");out.className="output";out.textContent=data.output;panel.appendChild(out);}
+      tabs.forEach(function(t,i){t.addEventListener("click",function(){showMode(t.dataset.mode);});t.addEventListener("keydown",function(e){if(e.key==="ArrowLeft"||e.key==="ArrowRight"){e.preventDefault();var next=(i+(e.key==="ArrowRight"?1:-1)+tabs.length)%tabs.length;tabs[next].click();tabs[next].focus();}});});
+      showMode("chat");
+      var quiz=[
+        {q:"請 AI 把一段文字改寫成正式公文語氣，通常哪一種最合適？",options:["Chat 對話","Workflow 自動化","Multi-Agent 多代理"],correct:0,why:"單次文字調整用 Chat 即可，通常不需要跨系統自動化。"},
+        {q:"每天收到新表單，就依固定規則存檔並通知承辦人，通常哪種更適合？",options:["Deep Research","Workflow 自動化","圖像生成 AI"],correct:1,why:"明確的觸發條件與固定步驟，是 Workflow 的典型場景。"},
+        {q:"調查多家廠商最新技術、動態決定研究步驟並使用工具完成報告，較接近哪一種？",options:["單純文案改寫","AI Agent","傳統分類模型"],correct:1,why:"目標導向、動態拆解步驟與使用工具，是 AI Agent 的典型能力；僅需資料研究時也可使用 Deep Research。"}
+      ];
+      var current=0,answers=[null,null,null],qq=document.getElementById("quizQuestion"),qo=document.getElementById("quizOptions"),qf=document.getElementById("quizFeedback"),qb=document.getElementById("quizBar"),qp=document.getElementById("quizPrev"),qn=document.getElementById("quizNext");
+      function renderQuiz(){
+        var item=quiz[current],score=answers.reduce(function(s,a,i){return s+(a===quiz[i].correct?1:0);},0);
+        document.getElementById("quizCount").textContent="第 "+(current+1)+" 題 / 共 3 題";
+        document.getElementById("quizScore").textContent="已答對 "+score+" 題";
+        qb.style.width=((current+1)/quiz.length*100)+"%";qq.textContent=item.q;qo.innerHTML="";
+        item.options.forEach(function(o,i){var b=document.createElement("button");b.type="button";b.className="answer"+(answers[current]===i?" selected":"");b.textContent=String.fromCharCode(65+i)+". "+o;b.setAttribute("aria-pressed",String(answers[current]===i));b.addEventListener("click",function(){answers[current]=i;renderQuiz();});qo.appendChild(b);});
+        qf.classList.toggle("hidden",answers[current]===null);
+        if(answers[current]!==null){qf.textContent=(answers[current]===item.correct?"✓ 答對了！":"參考答案："+item.options[item.correct]+"。")+" "+item.why;}
+        qp.disabled=current===0;qn.disabled=answers[current]===null;
+        qn.textContent=current===quiz.length-1?"重新練習 ↻":"下一題 →";
+      }
+      qp.addEventListener("click",function(){if(current>0){current--;renderQuiz();}});
+      qn.addEventListener("click",function(){if(answers[current]===null)return;if(current===quiz.length-1){current=0;answers=[null,null,null];}else{current++;}renderQuiz();});
+      renderQuiz();
+      var toc=document.querySelectorAll(".toc a");
+      if("IntersectionObserver" in window){var observer=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){toc.forEach(function(a){a.classList.toggle("active",a.getAttribute("href")==="#"+e.target.id);});}});},{rootMargin:"-18% 0px -65% 0px"});document.querySelectorAll("main section[id]").forEach(function(s){observer.observe(s);});}
+    })();
+  </script>
+</body>
+</html>
